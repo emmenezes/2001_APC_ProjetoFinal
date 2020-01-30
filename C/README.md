@@ -78,50 +78,48 @@ Narrativa da história
 
 ### Evento 1
 
-Narrativa anterior:
+#### Narrativa anterior:
 
-Situação do evento:
+#### Situação do evento:
 
-Opções e consequências:
+#### Opções e consequências:
 
 ### Evento 2
 
-Narrativa anterior:
+#### Narrativa anterior:
 
-Situação do evento:
+#### Situação do evento:
 
-Opções e consequências:
+#### Opções e consequências:
 
 ### Evento 3
 
-Narrativa anterior:
+#### Narrativa anterior:
 
-Situação do evento:
+#### Situação do evento:
 
-Opções e consequências:
+#### Opções e consequências:
 * 
 * 
 * 
 
 ### Evento 4 - Três charadas
 
-Narrativa anterior:
+#### Narrativa anterior:
 
-Alternativas de charadas
+#### Alternativas de charadas
 
 1. Qual o nome do livro do Rambo? [S1E1]
 
-a. Rambo, o livro
-
-b. **Rambo**
-
-c. O livro do Rambo
+    1. Rambo, o livro
+    2. **Rambo**
+    3. O livro do Rambo
 
 2. O que não é Cultura Jovem?
 
     1. Slack line e Bruno de Lucca
     2. Skate e Destruição
-    3. Urso
+    3. **Urso**
 
 3. 
 4. 
@@ -139,6 +137,6 @@ c. O livro do Rambo
 
 ### Evento 5 - Descubra o número
 
-Narrativa anterior:
+#### Narrativa anterior:
 
 ### FIM DE JOGO
