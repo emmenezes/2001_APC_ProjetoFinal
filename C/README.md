@@ -1,4 +1,4 @@
-# Projeto Final de APC
+Projeto Final de APC
 =============
 
 Proposta
@@ -27,8 +27,11 @@ Criação de personagem
 *Rogerinho: Ei, rapá, qual o teu nome?*
 - Pode ter espaço
 
-2. 
-*Maurílio:*
+2. Índole - int[3]
+*Maurílio: Mas fala ai, quem que é você?*
+* Só falo com tranquilidade
+* Me chamam de palestrinha
+* Só trabalho pra dar conforto pro filho
 
 3. Alinhamento - int[3]
 *Renan: Esse cara parece muito estranho, Rogerinho, não confio nele não*
@@ -37,16 +40,16 @@ Criação de personagem
 * Ex (ou não) motorista de Uber
 
 4. Profissão - int[3]
-*Julinho: Fala ai o que tu faz, dodoi*
+*Julinho: Fala ai o que tu faz, dodói*
 * Leva os atores do Projac de lá para cá
 * Vende suplementos alimentares de Iguaba
 * Conduz pessoas em um transporte alternativo
 
 5. Meta - int[3]
 *Renan: isso ainda parece muito suspeito*
-*
-*
-*
+* Arrumar encrenca com idosos
+* Capotar (ou não)
+* Vender seus produtos e familiares aos pilotos
 
 6. Onde mora - int[3]
 *Maurílio: é o seguinte, como o Renan ainda não confia em ti, fala ai onde tu mora com esse trabalho ai*
@@ -65,10 +68,10 @@ Criação de personagem
 * Towner Azul Bebê
 
 ### Exceções
-1. Se escolher a profissão "Levar os atores de lá para cá" não pode escolher como meio de transporte a Towner Azul Bebê! Nunca que Renan deixaria uma pessoa como o Maurílio usar sua van!!!
+1. Se escolher a índole "Me chamam de palestrinha" não pode escolher como meio de transporte a Towner Azul Bebê! Nunca que Renan deixaria uma pessoa como o Maurílio usar sua van!!!
 2. Se escolher a profissão "Vende suplementos alimentares de Iguaba" não pode morar em casa, pois não há renda para isso.
-3. 
-4. 
+3. Se escolher o alinhamento "Ciclista disfarçado" não pode não pode escolher a profissão "Vende suplementos alimentares de Iguaba", porque não tem habilidade para tal.
+4. Se escolher o alinhamento "Ex (ou não) motorista de Uber" não pode ter como meta "Arrumar encrenca com idosos", pois é muito pacato para isso. 
 
 Narrativa da história
 ------------
@@ -129,13 +132,47 @@ Narrativa da história
     2. Skate e Destruição
     3. **Urso**
 
-3. 
+3. Qual o filme mais complexo?
+
+    1. Laranja mecânica
+    2. 2001 - uma odisseia no espaço
+    3. **Se eu fosse você 2**
+
 4. 
+
+    1. 
+    2. 
+    3. 
+
 5. 
+
+    1. 
+    2. 
+    3. 
+
 6. 
+
+    1. 
+    2. 
+    3. 
+
 7. 
+
+    1. 
+    2. 
+    3. 
+
 8. 
+
+    1. 
+    2. 
+    3. 
+
 9. 
+
+    1. 
+    2. 
+    3. 
 10. 
 11. 
 12. 
