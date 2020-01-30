@@ -112,10 +112,17 @@ Alternativas de charadas
 1. Qual o nome do livro do Rambo? [S1E1]
 
 a. Rambo, o livro
+
 b. **Rambo**
+
 c. O livro do Rambo
 
-2. 
+2. O que não é Cultura Jovem?
+
+    a. Slack line e Bruno de Lucca
+    b. Skate e Destruição
+    c. Urso
+
 3. 
 4. 
 5. 
