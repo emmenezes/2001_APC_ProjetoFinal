@@ -23,35 +23,43 @@ Condições:
 Criação de personagem
 -------------
 
-1. Nome - char[21] 
+1. Nome - char[21]
+*Rogerinho: Ei, rapá, qual o teu nome?*
 - Pode ter espaço
 
 2. 
+*Maurílio:*
 
 3. Alinhamento - int[3]
+*Renan: Esse cara parece muito estranho, Rogerinho, não confio nele não*
 * Piloto de van
 * Ciclista disfarçado
 * Ex (ou não) motorista de Uber
 
 4. Profissão - int[3]
+*Julinho: Fala ai o que tu faz, dodoi*
 * Leva os atores do Projac de lá para cá
 * Vende suplementos alimentares de Iguaba
 * Conduz pessoas em um transporte alternativo
 
 5. Meta - int[3]
+*Renan: isso ainda parece muito suspeito*
 *
 *
 *
 
 6. Onde mora - int[3]
+*Maurílio: é o seguinte, como o Renan ainda não confia em ti, fala ai onde tu mora com esse trabalho ai*
 * Kombi
 * Terreno da casa da sua avó
 * Uma casa sujeita a invasões de lagartos mordedores e com seu filho, fruto de um relacionamento com sua prima de 1º grau
 
 7. História prévia - char[401]
+*Rogerinho: Mas fala aí, como é que tu chegou aqui *
 - Como o personagem se envolveu com os motoristas de transporte alternativo.
 
 8. Meio de transporte - int[3]
+
 * Kombi Branca 84
 * Sprinter Branca
 * Towner Azul Bebê
