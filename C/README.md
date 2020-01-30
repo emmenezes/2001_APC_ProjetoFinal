@@ -119,9 +119,9 @@ c. O livro do Rambo
 
 2. O que não é Cultura Jovem?
 
-    a. Slack line e Bruno de Lucca
-    b. Skate e Destruição
-    c. Urso
+    1. Slack line e Bruno de Lucca
+    2. Skate e Destruição
+    3. Urso
 
 3. 
 4. 
