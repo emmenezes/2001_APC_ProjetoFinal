@@ -1,14 +1,14 @@
 #include <stdio.h> /*  biblioteca padrão  */
 #include <stdlib.h> /*  usada para a função getchar()  */
-/**/
+#include <string.h> /*  usada para as funções de string, como [^/n]  */
 
 typedef struct{
-    char nome[21], historia[401];
-    int indole, alinhamento, profissao, meta, moradia, van, completo;
+    char nome[21], historia[401], indole, alinhamento, profissao, meta, moradia, van;
+    int completo, vida;
     /*  o atributo int completo serve para confirmar que todas as características foram preenchidas  */
 } personagem;
 
-personagem piloto = {0};
+personagem piloto;
 
 /*    Seção de funções tipo void que contém apenas textos    */
 
@@ -23,7 +23,8 @@ void sempiloto();
 void criacao();
 
 int main(){
-    char opcao;
+    piloto.vida = 100;
+    char opcao[1] = {'0'};
 
     system("clear");
     introducao();
@@ -34,14 +35,13 @@ int main(){
     while (1){
         system("clear");
         menu();
-        scanf(" %c", &opcao);
+        scanf("%s", opcao);
         /*  aqui o getchar() le o ENTER para evitar que ele seja lido dentro das opções  */
         getchar();
-        switch (opcao) {
+        switch (opcao[0]) {
         case '1':
         /*  criação de personagem  */
             system("clear");
-            getchar();
             criacao();
             break;
         
@@ -73,6 +73,8 @@ int main(){
     
     return 0;
 }
+
+/*  Seção de funções tipo void que contém apenas textos  */
 
 void introducao (){
     printf( "\nSeja bem-vinde ao Choque de Cultura, o RPG\n\n"
@@ -111,6 +113,54 @@ void sempiloto(){
             "Clique em ENTER para continuar\n");
 }
 
+/*  Seção de funções interativas  */
+
 void criacao(){
-    
+    char opcao[1];
+    printf( "Os pilotos do Choque olham para você do outro lado da manifestação\n"
+            "Infelizmente você parece ser a única pessoa a ter uma van\n"
+            "E ser facilmente intimidada\n"
+            "Se quiser fugir, é só digitar 0 e clicar em ENTER\n"
+            "Tudo pronto? Podemos continuar?\n\n"
+            "Clique em ENTER para continuar\n\n");
+    getchar();
+    void nomePersonagem(){
+        system("clear");
+        printf( "\nRogerinho: Ei, rapá, qual o teu nome?\n\n"
+                "Simone pelo seu fone de ouvido: ei, aqui tem limite de caractere\n"
+                "não passe dos 20, que se for maior que isso, ele vão esquecer\n"
+                "haha\n\n");
+        scanf("%[^\n]", piloto.nome);
+        if (piloto.nome[0] == '0'){
+            system("clear");
+            printf( "Simone: Ihhh, vai sair mesmo?\n"
+                    "Não julgo, faria o mesmo\n"
+                    "haha\n\n"
+                    "Digite 0 e clique ENTER para confirmar\n"
+                    "Se quiser continuar, pode digitar qualquer outra coisa\n\n");
+            scanf("%s", opcao);
+            if (opcao[0] == '0'){
+                strcpy(piloto.nome, "");
+                return;
+            } else {
+                nomePersonagem();
+            }
+        } else {
+            system("clear");
+            printf("Renan: %s...... esse é mesmo o seu nome?\n\n", piloto.nome);
+            printf( "Simone: É esse mesmo?\n\n"
+                    "Digite 0 e clique ENTER para mudar\n"
+                    "Se quiser continuar, pode digitar qualquer outra coisa\n\n");
+            scanf("%s", opcao);
+            printf("%s\n", opcao);
+            if (opcao[0] == '0'){
+                strcpy(piloto.nome, "");
+                getchar();
+                nomePersonagem();
+            }
+        }
+    }    
+    nomePersonagem();
+
+    getchar();
 }
