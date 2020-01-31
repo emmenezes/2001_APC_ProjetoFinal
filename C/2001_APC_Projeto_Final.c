@@ -3,8 +3,8 @@
 #include <string.h> /*  usada para as funções de string, como [^/n]  */
 
 typedef struct{
-    char nome[21], historia[401], indole, alinhamento, profissao, meta, moradia, van;
-    int completo, vida;
+    char nome[21], historia[401];
+    int completo, vida, indole, alinhamento, profissao, meta, moradia, van;
     /*  o atributo int completo serve para confirmar que todas as características foram preenchidas  */
 } personagem;
 
@@ -96,7 +96,7 @@ void menu(){
 void saida(){
     printf( "\nRogerinho: achou que a gente ia perseguir você?\n"
             "Achou errado otário!\n"
-            "Pode vazar.\n");
+            "Pode vazar.\n\n");
 }
 
 void entradaincorreta(){
@@ -124,7 +124,8 @@ void criacao(){
             "Tudo pronto? Podemos continuar?\n\n"
             "Clique em ENTER para continuar\n\n");
     getchar();
-    void nomePersonagem(){
+
+    int nomePersonagem(){
         system("clear");
         printf( "\nRogerinho: Ei, rapá, qual o teu nome?\n\n"
                 "Simone pelo seu fone de ouvido: ei, aqui tem limite de caractere\n"
@@ -141,7 +142,7 @@ void criacao(){
             scanf("%s", opcao);
             if (opcao[0] == '0'){
                 strcpy(piloto.nome, "");
-                return;
+                return -1;
             } else {
                 nomePersonagem();
             }
@@ -159,8 +160,45 @@ void criacao(){
                 nomePersonagem();
             }
         }
+        return 1;
     }    
-    nomePersonagem();
 
-    getchar();
+    int indolePersonagem(){
+        system("clear");
+        printf( "\nMaurílio: Mas fala ai, quem que é você?\n\n"
+                "Simone: Bem, aqui você só tem 3 opções, então escolha com cuidado\n"
+                "E se você digitar mais de um número,\n"
+                "vou fazer questão de fingir que não vi o segundo\n"
+                "Tô de olho!\n\n");
+        printf( "1. Só falo com tranquilidade\n"
+                "2. Me chamam de palestrinha\n"
+                "3. Só trabalho pra dar conforto pro meu filhote\n\n");
+        scanf("%d", &piloto.indole);
+        if (piloto.indole != 1 && piloto.indole != 2 && piloto.indole != 3){
+            system("clear");
+            printf( "Simone: Ihhh, tá querendo sair?\n"
+                    "Errou na digitação?\n"
+                    "Diz ai o que você quer\n\n"
+                    "Digite 0 e clique ENTER para sair\n"
+                    "Se quiser continuar, pode digitar qualquer outra coisa\n\n");
+            scanf("%s", opcao);
+            if (opcao[0] == '0'){
+                piloto.indole = 0;
+                return -1;
+            } else {
+                indolePersonagem();
+            }
+        }
+    }
+
+    if (nomePersonagem() < 0){
+        getchar();
+        return;
+    }
+    if (indolePersonagem() < 0){
+        printf("%d\n", piloto.indole);
+        getchar();
+        return;
+    }
+
 }
