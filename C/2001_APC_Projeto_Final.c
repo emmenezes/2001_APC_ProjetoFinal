@@ -10,6 +10,7 @@ typedef struct{
 } personagem;
 
 personagem piloto;
+int criacaop = 0;
 
 /*    Seção de funções tipo void que contém apenas textos    */
 
@@ -48,7 +49,7 @@ int main(){
         /*  criação de personagem  */
             system("clear");
             criacao();
-            break;
+			break;
         
         case '2':
         /*  iniciar o jogo, mas confere primeiro se há um piloto  */
@@ -87,7 +88,7 @@ void introducao (){
 }
 
 void menu(){
-    printf( "\nHoje, é diaa 21/09/19, dia da grande manifestação\n"
+    printf( "\nHoje, é dia 21/09/19, dia da grande manifestação\n"
             "dos motoristas do transporte alternativo.\n"
             "E é claro que os pilotos do Choque de Cultura\n"
             "não poderiam estar de fora\n\n");
@@ -121,7 +122,7 @@ void sempiloto(){
 /*  Seção de funções interativas  */
 
 void criacao(){
-    char opcao[1];
+    int infosalvas = 0;
     printf( "Os pilotos do Choque olham para você do outro lado da manifestação\n"
             "Infelizmente você parece ser a única pessoa a ter uma van\n"
             "E ser facilmente intimidada\n"
@@ -130,107 +131,161 @@ void criacao(){
             "Clique em ENTER para continuar\n\n");
     getchar();
 
-    int nomePersonagem(){
-        system("clear");
-        printf( "\nRogerinho: Ei, rapá, qual o teu nome?\n\n"
-                "Simone pelo seu fone de ouvido: ei, aqui tem limite de caractere\n"
-                "não passe dos 20, que se for maior que isso, ele vão esquecer\n"
-                "haha\n\n");
-        scanf("%[^\n]", piloto.nome);
-        if (piloto.nome[0] == '0'){
+    while (1){
+        switch (criacaop)
+        {
+        case 0:
+            /* Primeira vez a colocar um nome */
+            system("clear");
+            printf( "\nRogerinho: Ei, rapá, qual o teu nome?\n\n"
+                    "Simone pelo seu fone de ouvido: ei, aqui tem limite de caractere\n"
+                    "não passe dos 20, que se for maior que isso, ele vão esquecer\n"
+                    "haha\n\n");
+            scanf("%[^\n]", piloto.nome);
+           	criacaop = 1;
+            break;
+
+        case 1:
+            system("clear");
+            printf( "\nMaurílio: Mas fala ai, quem que é você?\n\n"
+                    "Simone: Bem, aqui você só tem 3 opções,\n"
+                    "então escolha com cuidado,\n"
+                    "Tô de olho!\n\n");
+            printf( "1. Só falo com tranquilidade\n"
+                    "2. Me chamam de palestrinha\n"
+                    "3. Só trabalho pra dar conforto pro meu filhote\n\n");
+            scanf("%d", &piloto.indole);
+            criacaop = 2;
+            break;
+            
+        case 2: 
+        	system("clear");
+        	printf( "\nRenan: Esse cara parece muito estranho, Rogerinho, não confio nele não\n\n"
+	                "Simone: Outras 3 opções, você sabe como funciona\n"
+	                "Mas fala só para mim, quem é você? De verdade!\n\n");
+	        printf( "1. Piloto de van, ué?\n"
+	                "2. Ciclista disfarçado...\n"
+	                "3. Ex (ou não) motorista de Uber\n\n");
+	        scanf("%d", &piloto.alinhamento);
+	        criacaop = 3;
+	        break;
+        
+		case 3:
+			system("clear");
+			printf(	"Julinho: Fala ai o que tu faz, dodói\n\n"
+					"Simone: 3 opções, blá, blá, blá...\n\n");
+			printf(	"1. Levo os atores do Projac de lá para cá\n"
+					"2. Vendo suplementos alimentares de Iguaba\n"
+					"3. Conduzo pessoas em um transporte alternativo\n\n");
+			scanf("%d", &piloto.profissao);
+			criacaop = 4;
+	        break;
+
+		case 4: 
+			system("clear");
+			printf(	"Renan: isso ainda parece muito suspeito\n\n"
+					"Simone: joga a real, você dirige por quê?\n\n");
+			printf(	"1. Arrumo encrenca com idosos\n"
+					"2. Capoto (ou não)\n"
+					"3. Vendo meus produtos e familiares a pilotos\n\n");
+			scanf("%d", &piloto.meta);
+			criacaop = 5;
+	        break;
+
+		case 5:
+			system("clear");
+			printf(	"Maurílio: é o seguinte, como o Renan ainda não confia em ti,\n"
+					"fala ai onde tu mora com esse trabalho ai\n\n");
+			printf(	"1. Na Kombi\n"
+					"2. Terreno da casa da minha avó\n"
+					"3. Numa casa sujeita a invasões de lagartos mordedores,\n"
+					"com meu filho, fruto de um relacionamento com minha prima de 1º grau\n\n");
+			scanf("%d", &piloto.moradia);
+			criacaop = 6;
+	        break;
+
+		case 6:
+			system("clear");
+			printf(	"Rogerinho: Mas fala aí, como é que tu chegou aqui\n\n"
+					"Simone: e os limites de caractere voltaram!\n\n"
+					"Aqui são duzentos e depois já pode me chamar de wiki\n"
+					"haha\n\n");
+			getchar();
+			scanf("%[^\n]", piloto.historia);
+			criacaop = 7;
+	        break;
+	        
+	    case 7:
+	    	system("clear");
+	    	printf(	"Julinho: e como é que a gente vai?\n\n");
+	    	printf(	"1. Kombi Branca 84\n"
+					"2. Sprinter Branca\n");
+			if (piloto.indole != 2){
+				printf("3. Towner Azul Bebê\n");
+			}
+			printf("\n");
+			scanf("%d", &piloto.van);
+	    	criacaop = 8;
+	        break;
+
+        case 9:
+            /*  saida padrão, duas opções: apagar tudo ou confirmar tudo  */
             system("clear");
             printf( "Simone: Ihhh, vai sair mesmo?\n"
                     "Não julgo, faria o mesmo\n"
                     "haha\n\n"
                     "Digite 0 e clique ENTER para confirmar\n"
-                    "Se quiser continuar, pode digitar qualquer outra coisa\n\n");
-            scanf("%s", opcao);
-            if (opcao[0] == '0'){
-                strcpy(piloto.nome, "");
-                return -1;
-            } else {
-                nomePersonagem();
+                    "Digite 1 e cloque ENTER para cancelar e voltar à criação\n\n");
+            scanf("%d", &criacaop);
+            while (criacaop < 0 || criacaop > 1){
+                    scanf("%d", &criacaop);
             }
-        } else {
-            system("clear");
-            printf("Renan: %s...... esse é mesmo o seu nome?\n\n", piloto.nome);
-            printf( "Simone: É esse mesmo?\n\n"
-                    "Digite 0 e clique ENTER para mudar\n"
-                    "Se quiser continuar, pode digitar qualquer outra coisa\n\n");
-            scanf("%s", opcao);
-            printf("%s\n", opcao);
-            if (opcao[0] == '0'){
-                strcpy(piloto.nome, "");
-                getchar();
-                nomePersonagem();
-            }
-        }
-        return 1;
-    }    
+            if (criacaop == 0){
+                printf( "Simone: Só mais uma coisinha,\n");
+                switch (infosalvas)
+                {
+                case 0:
+                    /* code */
+                    printf( "Bem, não tenho nenhuma informaçãos sua.\n"
+                            "Pode ir embora mesmo, desconhecido...\n\n");
+                    break;
+                
+                case 1:
+                    printf( "Bem, eu já sei o seu nome e vou deixar guardado\n"
+                            "Até mais\n");
 
-    int indolePersonagem(){
-        system("clear");
-        printf( "\nMaurílio: Mas fala ai, quem que é você?\n\n"
-                "Simone: Bem, aqui você só tem 3 opções,\n"
-                "então escolha com cuidado,\n"
-                "Tô de olho!\n\n");
-        printf( "1. Só falo com tranquilidade\n"
-                "2. Me chamam de palestrinha\n"
-                "3. Só trabalho pra dar conforto pro meu filhote\n\n");
-        scanf("%d", &piloto.indole);
-        if (piloto.indole < 1 || piloto.indole > 3){
-            system("clear");
-            printf( "Simone: Ihhh, tá querendo sair?\n"
-                    "Errou na digitação?\n"
-                    "Diz ai o que você quer\n\n"
-                    "Digite 0 e clique ENTER para sair\n"
-                    "Se quiser continuar, pode digitar qualquer outra coisa\n\n");
-            scanf("%s", opcao);
-            if (opcao[0] == '0'){
-                piloto.indole = 0;
-                return -1;
-            } else {
-                indolePersonagem();
-            }
-        }
-    }
+                case 2:
+                    printf( "Sei seu nome e também sua índole"
+                            "Te vejo por aí\n");
 
-    int alinhamentoPersonagem(){
-        system("clear");
-        printf( "\nRenan: Esse cara parece muito estranho, Rogerinho, não confio nele não\n\n"
-                "Simone: Outras 3 opções, você sabe como funciona\n"
-                "Mas fala só para mim, quem é você? De verdade!\n\n");
-        printf( "1. Piloto de van, ué?\n"
-                "2. Ciclista disfarçado...\n"
-                "3. Ex (ou não) motorista de Uber\n\n");
-        scanf("%d", &piloto.alinhamento);
-        if (piloto.alinhamento < 1 || piloto.alinhamento > 3){
-            system("clear");
-            printf( "Simone: Vai sair agora?\n"
-                    "Foi engano?\n"
-                    "O que foi?\n\n"
-                    "Digite 0 e clique ENTER para sair\n"
-                    "Se quiser continuar, pode digitar qualquer outra coisa\n\n");
-            scanf("%s", opcao);
-            if (opcao[0] == '0'){
-                piloto.alinhamento = 0;
-                return -1;
-            } else {
-                indolePersonagem();
-            }
-        }
-    }
+                case 3:
+                    printf( "Sei nome, indole e alinhamento\n"
+                            "");
 
-    if (nomePersonagem() < 0){
-        getchar();
-        return;
+
+                default:
+                    printf( "Ihhh, parece aqui que vocês está muito além do meu código\n"
+                            "Que estranho, deveria chamar você de bug?\n"
+                            "Volte ao meu, e tente novamente\n\n");
+                    break;
+                }
+
+                return;
+            }
+            break;
+        }
+        
+        if (criacaop == 8){
+        	piloto.completo = 1;
+        	system("clear");
+        	printf(	"Simone: bem, olhei a ficha aqui, e parece que está tudo ok\n"
+					"Agora já pode ir lá jogar, e se quiser mudar algo, pode também\n\n"
+					"Clique ENTER para continuar\n");
+			getchar();
+        	break;
+		}
+            /*Sair da carcaterização de personagem*/
+        
     }
-    if (indolePersonagem() < 0){
-        getchar();
-        return;
-    }
-    if (alinhamentoPersonagem() < 0){
-        getchar();
-        return;
-    }
+    getchar();
 }
