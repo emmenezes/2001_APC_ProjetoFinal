@@ -1,6 +1,7 @@
 #include <stdio.h> /*  biblioteca padrão  */
 #include <stdlib.h> /*  usada para a função getchar()  */
 #include <string.h> /*  usada para as funções de string, como [^/n]  */
+#include <time.h> /*  usada para a geração de números aleatórios  */
 
 typedef struct{
     char nome[21], historia[401];
@@ -17,10 +18,14 @@ void menu();
 void saida();
 void entradaincorreta();
 void sempiloto();
+void fimdejogoruim();
+void fimdejogobom();
 
 /*    Seção de funções interativas    */
 
 void criacao();
+void trescharadas();
+void placadavan();
 
 int main(){
     piloto.vida = 100;
@@ -166,15 +171,14 @@ void criacao(){
     int indolePersonagem(){
         system("clear");
         printf( "\nMaurílio: Mas fala ai, quem que é você?\n\n"
-                "Simone: Bem, aqui você só tem 3 opções, então escolha com cuidado\n"
-                "E se você digitar mais de um número,\n"
-                "vou fazer questão de fingir que não vi o segundo\n"
+                "Simone: Bem, aqui você só tem 3 opções,\n"
+                "então escolha com cuidado,\n"
                 "Tô de olho!\n\n");
         printf( "1. Só falo com tranquilidade\n"
                 "2. Me chamam de palestrinha\n"
                 "3. Só trabalho pra dar conforto pro meu filhote\n\n");
         scanf("%d", &piloto.indole);
-        if (piloto.indole != 1 && piloto.indole != 2 && piloto.indole != 3){
+        if (piloto.indole < 1 || piloto.indole > 3){
             system("clear");
             printf( "Simone: Ihhh, tá querendo sair?\n"
                     "Errou na digitação?\n"
@@ -191,14 +195,42 @@ void criacao(){
         }
     }
 
+    int alinhamentoPersonagem(){
+        system("clear");
+        printf( "\nRenan: Esse cara parece muito estranho, Rogerinho, não confio nele não\n\n"
+                "Simone: Outras 3 opções, você sabe como funciona\n"
+                "Mas fala só para mim, quem é você? De verdade!\n\n");
+        printf( "1. Piloto de van, ué?\n"
+                "2. Ciclista disfarçado...\n"
+                "3. Ex (ou não) motorista de Uber\n\n");
+        scanf("%d", &piloto.alinhamento);
+        if (piloto.alinhamento < 1 || piloto.alinhamento > 3){
+            system("clear");
+            printf( "Simone: Vai sair agora?\n"
+                    "Foi engano?\n"
+                    "O que foi?\n\n"
+                    "Digite 0 e clique ENTER para sair\n"
+                    "Se quiser continuar, pode digitar qualquer outra coisa\n\n");
+            scanf("%s", opcao);
+            if (opcao[0] == '0'){
+                piloto.alinhamento = 0;
+                return -1;
+            } else {
+                indolePersonagem();
+            }
+        }
+    }
+
     if (nomePersonagem() < 0){
         getchar();
         return;
     }
     if (indolePersonagem() < 0){
-        printf("%d\n", piloto.indole);
         getchar();
         return;
     }
-
+    if (alinhamentoPersonagem() < 0){
+        getchar();
+        return;
+    }
 }
