@@ -131,132 +131,133 @@ void criacao(){
     getchar();
 
     while (1){
-    	if (piloto.completo == 0){
-    		switch (criacaop){
-		        case 0:
-		        /*  Nome  */
-		            system("clear");
-		            printf( "\nRogerinho: Ei, rapá, qual o teu nome?\n\n"
-		                    "Simone pelo seu fone de ouvido: ei, aqui tem limite de caractere\n"
-		                    "não passe dos 20, que se for maior que isso, ele vão esquecer\n"
-		                    "haha\n\n");
-		            scanf("%[^\n]", piloto.nome);
-		           	criacaop = 1;
-		            break;
-		
-		        case 1:
-		        /*  �ndole  */
-		            system("clear");
-		            printf( "\nMaurílio: Mas fala ai, quem que é você?\n\n"
-		                    "Simone: Bem, aqui você só tem 3 opções,\n"
-		                    "então escolha com cuidado,\n"
-		                    "Tô de olho!\n\n");
-		            printf( "1. Só falo com tranquilidade\n"
-		                    "2. Me chamam de palestrinha\n"
-		                    "3. Só trabalho pra dar conforto pro meu filhote\n\n");
-		            scanf("%d", &piloto.indole);
-		            criacaop = 2;
-		            break;
-		            
-		        case 2: 
-		        /*  Alinhamento  */
-		        	system("clear");
-		        	printf( "\nRenan: Esse cara parece muito estranho, Rogerinho, não confio nele não\n\n"
-			                "Simone: Outras 3 opções, você sabe como funciona\n"
-			                "Mas fala só para mim, quem é você? De verdade!\n\n");
-			        printf( "1. Piloto de van, ué?\n"
-			                "2. Ex (ou não) motorista de Uber\n"
-			                "3. Ciclista disfarçado...\n\n");
-			        scanf("%d", &piloto.alinhamento);
-			        criacaop = 3;
-			        break;
+		switch (criacaop){
+	        case 0:
+	        /*  Nome  */
+	            system("clear");
+	            printf( "\nRogerinho: Ei, rapá, qual o teu nome?\n\n"
+	                    "Simone pelo seu fone de ouvido: ei, aqui tem limite de caractere\n"
+	                    "não passe dos 20, que se for maior que isso, ele vão esquecer\n"
+	                    "haha\n\n");
+	            scanf("%[^\n]", piloto.nome);
+	           	criacaop = 1;
+	            break;
+	
+	        case 1:
+	        /*  �ndole  */
+	            system("clear");
+	            printf( "\nMaurílio: Mas fala ai, quem que é você?\n\n"
+	                    "Simone: Bem, aqui você só tem 3 opções,\n"
+	                    "então escolha com cuidado,\n"
+	                    "Tô de olho!\n\n");
+	            printf( "1. Só falo com tranquilidade\n"
+	                    "2. Me chamam de palestrinha\n"
+	                    "3. Só trabalho pra dar conforto pro meu filhote\n\n");
+	            scanf("%d", &piloto.indole);
+	            criacaop = 2;
+	            break;
+	            
+	        case 2: 
+	        /*  Alinhamento  */
+	        	system("clear");
+	        	printf( "\nRenan: Esse cara parece muito estranho, Rogerinho, não confio nele não\n\n"
+		                "Simone: Outras 3 opções, você sabe como funciona\n"
+		                "Mas fala só para mim, quem é você? De verdade!\n\n");
+		        printf( "1. Piloto de van, ué?\n"
+		                "2. Ex (ou não) motorista de Uber\n"
+		                "3. Ciclista disfarçado...\n\n");
+		        scanf("%d", &piloto.alinhamento);
+		        criacaop = 3;
+		        break;
+	        
+			case 3:
+			/*  Profiss�o  */
+				system("clear");
+				printf(	"\nJulinho: Fala ai o que tu faz, dodói\n\n"
+						"Simone: 3 opções, blá, blá, blá...\n\n");
+				printf(	"1. Levo os atores do Projac de lá para cá\n"
+						"2. Conduzo pessoas em um transporte alternativo\n");
+				if (piloto.alinhamento != 3){
+					printf("3. Vendo suplementos alimentares de Iguaba\n");
+				}
+				printf("\n");
+				scanf("%d", &piloto.profissao);
+				criacaop = 4;
+		        break;
+	
+			case 4: 
+			/*  Meta  */
+				system("clear");
+				printf(	"\nRenan: isso ainda parece muito suspeito\n\n"
+						"Simone: joga a real, você dirige por quê?\n\n");
+				printf(	"1. Vendo meus produtos e familiares a pilotos\n"
+						"2. Capoto (ou não)\n");
+				if (piloto.alinhamento != 2){
+					printf("3. Arrumo encrenca com idosos\n");
+				}
+				printf("\n");
+				scanf("%d", &piloto.meta);
+				criacaop = 5;
+		        break;
+	
+			case 5:
+			/*  Moradia  */
+				system("clear");
+				printf(	"\nMaurílio: é o seguinte, como o Renan ainda não confia em ti,\n"
+						"fala ai onde tu mora com esse trabalho ai\n\n");
+				printf(	"1. Na Kombi\n"
+						"2. Terreno da casa da minha avó\n");
+				if (piloto.profissao != 3){
+					printf(	"3. Numa casa sujeita a invasões de lagartos mordedores,\n"
+							"com meu filho, fruto de um relacionamento com minha prima de 1º grau\n");
+				}
+				printf("\n");
+				scanf("%d", &piloto.moradia);
+				criacaop = 6;
+		        break;
+	
+			case 6:
+			/*  Hist�ria  */
+				system("clear");
+				printf(	"\nRogerinho: Mas fala aí, como é que tu chegou aqui\n\n"
+						"Simone: e os limites de caractere voltaram!\n\n"
+						"Aqui são 400 e depois já pode me chamar de sua wiki pessoal\n"
+						"haha\n\n");
+				getchar();
+				scanf("%[^\n]", piloto.historia);
+				criacaop = 7;
+		        break;
 		        
-				case 3:
-				/*  Profiss�o  */
-					system("clear");
-					printf(	"Julinho: Fala ai o que tu faz, dodói\n\n"
-							"Simone: 3 opções, blá, blá, blá...\n\n");
-					printf(	"1. Levo os atores do Projac de lá para cá\n"
-							"2. Conduzo pessoas em um transporte alternativo\n");
-					if (piloto.alinhamento != 3){
-						printf("3. Vendo suplementos alimentares de Iguaba\n");
-					}
-					printf("\n");
-					scanf("%d", &piloto.profissao);
-					criacaop = 4;
-			        break;
-		
-				case 4: 
-				/*  Meta  */
-					system("clear");
-					printf(	"Renan: isso ainda parece muito suspeito\n\n"
-							"Simone: joga a real, você dirige por quê?\n\n");
-					printf(	"1. Vendo meus produtos e familiares a pilotos\n"
-							"2. Capoto (ou não)\n");
-					if (piloto.alinhamento != 2){
-						printf("3. Arrumo encrenca com idosos\n");
-					}
-					printf("\n");
-					scanf("%d", &piloto.meta);
-					criacaop = 5;
-			        break;
-		
-				case 5:
-				/*  Moradia  */
-					system("clear");
-					printf(	"Maurílio: é o seguinte, como o Renan ainda não confia em ti,\n"
-							"fala ai onde tu mora com esse trabalho ai\n\n");
-					printf(	"1. Na Kombi\n"
-							"2. Terreno da casa da minha avó\n");
-					if (piloto.profissao != 3){
-						printf(	"3. Numa casa sujeita a invasões de lagartos mordedores,\n"
-								"com meu filho, fruto de um relacionamento com minha prima de 1º grau\n");
-					}
-					printf("\n");
-					scanf("%d", &piloto.moradia);
-					criacaop = 6;
-			        break;
-		
-				case 6:
-				/*  Hist�ria  */
-					system("clear");
-					printf(	"Rogerinho: Mas fala aí, como é que tu chegou aqui\n\n"
-							"Simone: e os limites de caractere voltaram!\n\n"
-							"Aqui são duzentos e depois já pode me chamar de wiki\n"
-							"haha\n\n");
-					getchar();
-					scanf("%[^\n]", piloto.historia);
-					criacaop = 7;
-			        break;
-			        
-			    case 7:
-			    /*  */
-			    	system("clear");
-			    	printf(	"Julinho: e como é que a gente vai?\n\n");
-			    	printf(	"1. Kombi Branca 84\n"
-							"2. Sprinter Branca\n");
-					if (piloto.indole != 2){
-						printf("3. Towner Azul Bebê\n");
-					}
-					printf("\n");
-					scanf("%d", &piloto.van);
-			    	piloto.completo = 1;
-			        break;
-		
-		        case 9:
-		            
-		            break;
-		        }
-		} else{
-        	system("clear");
-        	printf(	"Simone: bem, olhei a ficha aqui, e parece que está tudo ok\n"
-					"Agora já pode ir lá jogar, e se quiser mudar algo, pode também\n\n"
-					"Clique ENTER para continuar\n");
-			getchar();
+		    case 7:
+		    /* Van */
+		    	system("clear");
+		    	printf(	"\nJulinho: e como é que a gente vai?\n\n");
+		    	printf(	"1. Kombi Branca 84\n"
+						"2. Sprinter Branca\n");
+				if (piloto.indole != 2){
+					printf("3. Towner Azul Bebê\n");
+				}
+				printf("\n");
+				scanf("%d", &piloto.van);
+		    	criacaop = 9;
+		        break;
+	
+	        case 9:
+	        /*  Piloto completo  */
+	            system("clear");
+	        	printf(	"\nSimone: bem, olhei a ficha aqui, e parece que está tudo ok\n"
+						"Agora já pode ir lá jogar, e se quiser mudar algo, pode também\n\n"
+						"Clique ENTER para continuar\n");
+				getchar();
+				piloto.completo = 1;
+	            break;
+	    } 
+	    
+		if (piloto.completo == 1){
 			piloto.completo = 0;
 			criacaop = 0;
-        	break;
-		}        
+			break;
+		}
     }
     getchar();
 }
