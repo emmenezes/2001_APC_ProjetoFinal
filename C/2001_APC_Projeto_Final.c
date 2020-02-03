@@ -29,7 +29,7 @@ void iniciojogo();
 void evento2();
 void evento3();
 void trescharadas();
-void charadas();
+int charadas(int n);
 void placadavan();
 
 int main(){
@@ -91,7 +91,7 @@ int main(){
 void introducao (){
 	printf("\n");
     printf( "           Seja bem-vinde ao Choque de Cultura, o RPG\n\n"
-            "           Clique em ENTER para continuar\n");
+            "           Clique em ENTER para continuar");
 }
 
 void menu(){
@@ -143,8 +143,9 @@ void criacao(){
             "           E ser facilmente intimidada\n"
             "           Tudo pronto? Podemos seguir?\n\n"
             "Clique em ENTER para continuar\n\n");
-    getchar();
 	piloto.completo = 0;
+	getchar();
+	__fpurge(stdin);
 	
     while (1){
 		switch (criacaop){
@@ -156,7 +157,7 @@ void criacao(){
 	                    "Simone:    Ei, aqui tem limite de caractere\n"
 	                    "           Não passe dos 20, que se for maior que isso, ele vão esquecer\n"
 	                    "           haha\n\n");
-	            scanf("%[^\n]", piloto.nome);
+	            scanf(" %[^\n]", piloto.nome);
 	           	criacaop = 1;
 	            break;
 	
@@ -164,10 +165,10 @@ void criacao(){
 	        /*  Índole  */
 	            system("clear");
 	            printf("\n");
-	            printf( "Maurílio: Mas fala ai, quem que é você?\n\n"
+	            printf( "Maurílio: Mas fala ai, quem que é você, %s?\n\n"
 	                    "Simone:    Bem, aqui você só tem 3 opções,\n"
 	                    "           Então escolha com cuidado,\n"
-	                    "           Tô de olho!\n\n");
+	                    "           Tô de olho!\n\n", piloto.nome);
 	            printf( "1. Só falo com tranquilidade\n"
 	                    "2. Me chamam de palestrinha\n"
 	                    "3. Só trabalho pra dar conforto pro meu filhote\n\n");
@@ -225,7 +226,7 @@ void criacao(){
 			/*  Moradia  */
 				system("clear");
 				printf("\n");
-				printf(	"Maurílio:  é o seguinte, como o Renan ainda não confia em ti,\n"
+				printf(	"Maurílio:  É o seguinte, como o Renan ainda não confia em ti,\n"
 						"           Fala ai onde tu mora com esse trabalho ai\n\n");
 				printf(	"1. Na Kombi\n"
 						"2. Terreno da casa da minha avó\n");
@@ -272,7 +273,7 @@ void criacao(){
 	            printf("\n");
 	        	printf(	"Simone:    Bem, olhei a ficha aqui, e parece que está tudo ok\n"
 						"           Agora já pode ir lá jogar, e se quiser mudar algo, pode também\n\n"
-						"           Clique ENTER para continuar\n");
+						"Clique ENTER para continuar");
 				getchar();
 				piloto.completo = 1;
 	            break;
@@ -326,14 +327,14 @@ void iniciojogo(){
 	/*  Passo 3 - Narrativa a partir da escolha  */
 	system("clear");
 	if (escolha == 1){
-		printf(	"Simone:    Bem, o Google Maps e Renan estavam certos: pela direita vocês seguriam de boas");
+		printf(	"Simone:    Bem, o Google Maps e Renan estavam certos: pela direita vocês seguriam de boas\n");
 	} else if(escolha == 2){
-		printf(	"Simone:    O Maurílio nem é da cidade, mas já manjou tudo, o caminho tava bom");
+		printf(	"Simone:    O Maurílio nem é da cidade, mas já manjou tudo, o caminho tava bom\n");
 	} else {
 		printf(	"Simone:    Se esse é o mais rápido ou não, eu não sei, mas foi suave seguir a sugestão de Rogerinho\n");
 	}
 	printf(	"           Parece que esses motoristas de meia tigela estavam lezando\n"
-			"           Toda a polícia deve ter ido para a concentração e vocês continuam com tranquilidade\n");
+			"           Toda a polícia deve ter ido para a concentração\n");
 	printf(	"\n\nClique em ENTER para continuar");
 	getchar();
 	getchar();
@@ -406,7 +407,7 @@ void evento3(){
 			"Rogerinho: Aqui diz que é só dobrar à direita, mas não tão à direita assim\n"
 			"Renan:     Como não tão à direita assim, isso existe?\n"
 			"Rogerinho: Existe! Tá aqui no aplicativo ó\n"
-			"Simone:    Bem, é você que tá dirigindo, não me julgue e faça algo que se não você vai passar\n\n");
+			"Simone:    Bem, é você que tá dirigindo, não me julgue e faça algo que senão você vai passar\n\n");
 	printf( "1. Ir pela a direita não tão à direita assim sem dizer nada\n"
 			"2. Ir pela direita tão à direita assim, só para testar\n");
 	if (piloto.profissao == 1){
@@ -428,7 +429,7 @@ void evento3(){
 				"Rogerinho: Eu disse que era uma direita não tão direita assim!\n"
 				"           Agora passamos do ponto, vamos ter que dar o retorno lá longe!\n"
 				"           Quantas vezes vou ter que repetir que eu tô entendendo o Google!!!\n"
-				"*Renan parte pra cima de Rogeirnho seu mata-leão já testando em Julinho*"
+				"*Renan parte pra cima de Rogeirnho seu mata-leão já testando em Julinho*\n"
 				"Renan:     Calma! Mantenha a calma!\n"
 				"Simone:    Lá vamos nós de novo...");
 		printf(	"\n\nClique em ENTER para continuar");
@@ -443,15 +444,287 @@ void evento3(){
 
 	printf(	"\n\nClique em ENTER para continuar");
 	getchar();
+	getchar();
+	trescharadas();
 }
 
 void trescharadas(){
-	int sorteio;
+	int sorteio[3] = {0}; /* variável de controle para evitar perguntas repetidas */
+	int n = 1; /* charada sorteada */
+	int resposta = 0, i;
+	srand(time(NULL));
+
 	system("clear");
 
-	/*  Passo 8 - Evento das três charadas  */
+	/*  Passo 8.1 - Evento das três charadas - Introdução  */
+	printf(	"Simone:    E mais um momento de paz se inicia na van...\n"
+			"           Mas você sente que tem algo de estranho, né? Eu também, eu também... \n"
+			"           ...\n"
+			"Renan:     Você é dessa cidade né... Você não tá pensando em raptar a gente não, né?\n"
+			"Simone:    Esse riso aí não vai disfarçar não, sua estranheza, vossa senhoria.\n"
+			"Maurílio:  Faz assim, você disse que já conheci a gente, né %s,\n"
+			"           Por que você não responde umas perguntinhas, só pra testar?\n"
+			"Simone:    Isso não foi uma sugestão...\n"
+			"           Você está ok para lidar com umas três perguntinhas simples só para avaliar o seu caráter\n\n"
+			"           haha\n"
+			"           Não, isso não é brincadeira\n\n", piloto.nome);
+	printf ("Clique em ENTER para continuar");
+	getchar();
+	/*  Passo 8.2 - Evento das três charadas - Charadas  */
+	for (i = 0; i < 3; i++){
+		system("clear");
+		/*do {
+			n = rand%15 + 1;  sorteio de 15, sendo que começa em 1 
+		} while (n != sorteio[0] && n != sorteio[1])*/
+		sorteio[i] = 1;
+		resposta = charadas(n);
+		printf("\n");
+		if (resposta){
+			printf(	"Simone:    Tirou de letra, rapá! É isso que eu gosto de ver!\n"
+					"           Seu palpite foi tão certeiro que nem piscou!\n");
+		} else {
+			piloto.vida -= 10;
+			printf( "Simone:    E esses sinais de nervosismos, aí, são por quê?\n"
+					"           Eu vi esse olho aí tremendo, essa mão que quase puxou a marcha errada\n");
+			if (i == 0){
+				printf(	"           Esse tua lateral arranhou e saiba que isso aqui não é GTA pra você ficar batendo, hein?\n"
+						"           Essa van tem limite e agora tá em %d%%...", piloto.vida);
+			} else if (i == 1){
+				printf(	"           Sentiu uma parte do motor raspando naquele quebra-molas, né?\n"
+						"           Essa van tem limite e agora tá em %d%%...", piloto.vida);
+			} else {
+				printf( "           Hmmm, esse teu retrovisor direito quase foi levado pelo poste...\n"
+						"           Essa van tem limite e agora tá em %d%%...", piloto.vida);
+			}
+		}
+		printf ("\nClique em ENTER para continuar");
+		getchar();
+	}
+	
+	system("clear");
+	printf(	"Simone:    Apesar dos pesares, essa van ainda aguenta o resto da aventura com %d%%\n\n"
+			"           Ou será que não?\n\n", piloto.vida);
+	printf ("\nClique em ENTER para continuar");
+	getchar();
+
+	placadavan();
 }
 
-void charadas(){
-	
+int charadas(int n){
+	int entrada = 0;
+	if (n == 1){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	if (n == 2){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	if (n == 3){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	if (n == 4){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	if (n == 5){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	if (n == 6){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	if (n == 7){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	if (n == 8){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	if (n == 9){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	if (n == 10){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	if (n == 11){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	if (n == 12){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	if (n == 13){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	if (n == 14){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	if (n == 15){
+		printf(	"teste\n"
+				"teste\n");
+		printf(	"1. errada\n"
+				"2. errada\n"
+				"3. certa\n\n");
+		scanf(" %i", &entrada);
+		__fpurge(stdin);
+		if (entrada == 3){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+}
+
+void placadavan(){
+	system("clear");
+	printf("Chegou aqui\n\n");
 }
