@@ -161,7 +161,7 @@ void entradaincorreta(){
     printf( "Rogerinho: Que isso rapá!?\n"
             "           Tá achando que isso aqui é um jogo, é?\n"
             "           Escolhe uma opção que existe\n\n"
-            "           Clique em ENTER para continuar\n");
+            "Clique em ENTER para continuar\n");
 
 }
 
@@ -171,7 +171,7 @@ void sempiloto(){
     printf( "Renan:     Até Renanzinho é alguém e tu não\n"
             "           Se quiser jogar tem que existir primeiro\n"
 			"           Vai lá e cria um piloto logo!\n\n"
-            "           Clique em ENTER para continuar");
+            "Clique em ENTER para continuar");
 }
 
 /*  Seção de funções interativas  */
@@ -215,7 +215,7 @@ void criacao(){
 	            system("clear");
 	            printf("\n");
 	            printf( "Rogerinho: Ei, rapá, qual o teu nome?\n\n"
-	                    "Simone:    Ei, aqui tem limite de caractere\n"
+	                    "Simone:    Ei, aqui tem limite de caracteres\n"
 	                    "           Não passe dos 20, que se for maior que isso, ele vão esquecer\n"
 	                    "           haha\n\n");
 	            scanf(" %[^\n]", piloto.nome);
@@ -226,7 +226,7 @@ void criacao(){
 	        /*  1 - Índole  */
 	            system("clear");
 	            printf("\n");
-	            printf( "Maurílio: Mas fala ai, quem que é você, %s?\n\n"
+	            printf( "Maurílio:  Mas fala ai, quem que é você, %s?\n\n"
 	                    "Simone:    Bem, aqui você só tem 3 opções,\n"
 	                    "           Então escolha com cuidado,\n"
 	                    "           Tô de olho!\n\n", piloto.nome);
@@ -307,8 +307,8 @@ void criacao(){
 			/*  6 - História  */
 				system("clear");
 				printf("\n");
-				printf(	"Rogerinho: Mas fala aí, como é que tu chegou aqui\n\n"
-						"Simone:    E os limites de caractere voltaram!\n"
+				printf(	"Rogerinho: E como é que tu chegou aqui\n\n"
+						"Simone:    E os limites de caracteres voltaram!\n"
 						"           Aqui são 400 e depois já pode me chamar de sua wiki pessoal\n"
 						"           haha\n\n");
 				getchar();
@@ -361,6 +361,7 @@ void iniciojogo(){
 				
 	/*  Passo 1 - Introdução  
 		Breve sumário do prefácio da história  */
+	printf("\n");
 	printf(	"Simone:    Bem, imagino que você saiba muito bem onde isso começou...\n"
 			"           Foi naquela manifestação, você e sua vanzinha estavam tranquilos\n"
 			"           Viam tudo longe do fuzuê, mas um burburinho alto começou\n"
@@ -379,11 +380,12 @@ void iniciojogo(){
 	/*  Passo 2 - Evento 1 - Comum para todas as escolhas  
 		A primeira escolha é simples e trata apenas da escolha do caminho, todas as alternativas estão certas  */
 	system("clear");
+	printf("\n");
 	printf(	"Julinho:   Quem que cê tá fazendo, Rogerinho, não é essa via não!\n"
 			"Rogerinho: Você acha que não sei usar um GPS?!\n"
 			"Maurílio:  Se a polícia me pegar, vou mandar prender vocês também\n"
-			"Renan:     Maurílio, olha o que você tá falando\n"
-			"*Renan tira o celular da mão de Rogerinho*\n"
+			"Renan:     Maurílio, olha o que você tá falando\n\n"
+			"*Renan tira o celular da mão de Rogerinho*\n\n"
 			"Renan:     Aqui diz que é só dobrar a direita\n"
 			"Maurílio:  É isso que eu tá falando, na direita tem uma blitz!\n"
 			"           Tem que ir pela esquerda\n"
@@ -399,8 +401,10 @@ void iniciojogo(){
 	/*  Passo 3 - Narrativa a partir da escolha  
 		Só por incremento a narrativa seguinte depende da escolha*/
 	system("clear");
+	printf("\n");
 	if (escolha == 1){
-		printf(	"Simone:    Bem, o Google Maps e Renan estavam certos: pela direita vocês seguiriam de boas\n");
+		printf(	"Simone:    Bem, o Google Maps e Renan estavam certos:\n"
+				"           Pela direita vocês seguiriam na maior tranquilidade!\n");
 	} else if(escolha == 2){
 		printf(	"Simone:    O Maurílio nem é da cidade, mas já manjou tudo, o caminho tava bom\n");
 	} else {
@@ -420,11 +424,12 @@ void iniciojogo(){
 void evento2(){
 	int escolha = 0;
 	system("clear");
+	printf("\n");
 
 	/*  Passo 4 - O alinhamento do piloto elimina uma das possibilidades  
 		A escolha é a respeito de um tema de conversa, que sempre será menosprezado pelos pilotos  */
-	printf(	"Simone:    Como não tem mais discussão, você não acha um bom momento para puxar conversa?\n"
-			"           Eu sei, eu sei, o nervosismo de capotar (ou não) não deixa você pensar direito\n"
+	printf(	"Simone:    Como não tem mais discussão, você não acha uma boa puxar conversa?\n"
+			"           Eu sei, eu sei, o nervoso de capotar (ou não) não deixa você pensar direito\n"
 			"           Aqui tem alguns tópicos que me parecem inofensivos...\n\n");
 	
 	/*  A proposta pedia que cada alinhamento tivesse uma opção a menos, mas para facilitar as réplicas
@@ -439,27 +444,28 @@ void evento2(){
 		printf("2. Hoje, parece tranquilo, mas um carro quase me atropelou aqui semana passada\n\n");
 		scanf("%d", &escolha);
 		__fpurge(stdin);
-		/*  Para o alinhamento 1, a entrada equivale à réplica  */
+		/*  Para o alinhamento 1 "piloto de van", a entrada equivale à réplica  */
 	}
 	if (piloto.alinhamento == 2){
+		printf("1. Essas pistas tão boas, né?\n");
+		printf("2. O clima tá bom hoje, né?\n\n");
+		scanf("%d", &escolha);
+		__fpurge(stdin);
+		escolha = escolha == 1 ? escolha : escolha+1;
+		/*  Para o alinhamento 2 "ex ou não motorista de uber", a entrada equivale à réplica se for 1, e se não for, deve ser 3  */
+	}
+	if (piloto.alinhamento == 3){
 		printf("1. Hoje, parece tranquilo, mas um carro quase me atropelou aqui semana passada\n");
 		printf("2. O clima tá bom hoje, né?\n\n");
 		scanf("%d", &escolha);
 		__fpurge(stdin);
 		escolha++;
-		/*  Para o alinhamento 2, a entrada + 1 equivale à réplica  */
-	}
-	if (piloto.alinhamento == 3){
-		printf("1. Essas pistas tão boas, né?\n");
-		printf("2. O clima tá bom hoje, né?\n\n");
-		scanf("%d", &escolha);
-		__fpurge(stdin);
-		escolha = escolha == 1 ? escolha : escolha++;
-		/*  Para o alinhamento 3, a entrada equivale à réplica se for 1, e se não for, deve ser 3*/
+		/*  Para o alinhamento 3 "ciclista disfarçado", a entrada + 1 equivale à réplica  */
 	}
 
 	/*  Passo 5 - Narrativa a partir da escolha  */
 	system("clear");
+	printf("\n");
 	if (escolha == 1){
 		printf(	"Julinho:   Rapaz, sendo sincero contigo, eu prefiro a minha emoção lá no rio\n"
 				"           Cheio de morro pra tudo quanto é lado, é radical\n"
@@ -486,6 +492,7 @@ void evento2(){
 void evento3(){
 	int escolha = 0;
 	system("clear");
+	printf("\n");
 
 	/*  Passo 6 - Das três alternativas, uma volta ao evento 2 e outra é determinada pela profissão  */
 	printf(	"Simone:    Retas e mais retas à sua frente, não se preocupe\n"
@@ -502,13 +509,15 @@ void evento3(){
 	
 	if (piloto.profissao == 1){
 		/*  Opção se a profissão for "Levo o pessoal da Globo de lá para cá"  */
-		printf ("3. Ir pela direita e comentar que de tanto levar o pessoal da Globo, você sabe de cor o caminho\n");
+		printf ("3. Ir pela direita e dizer que de tanto levar o pessoal da Globo\n"
+				"   você sabe de cor o caminho\n");
 	} else if (piloto.profissao == 2){
 		/*  Opção se a profissão for "Conduzo pessoas em um transporte alternativo"  */
 		printf ("3. Ir pela direita e comentar que todo santo dia passa por ali\n");
 	} else {
 		/*  Opção se a profissão for "3. Vendo suplementos alimentares de Iguaba"  */
-		printf ("3. Ir pela direita e comentar sobre seus clientes de suplementos que são daquela região\n");
+		printf ("3. Ir pela direita e comentar sobre seus clientes de suplementos\n"
+				"   que são daquela região\n");
 	}
 	printf("\n");
 	scanf("%d", &escolha);
@@ -517,14 +526,15 @@ void evento3(){
 	/*  Passo 7 - Narrativa a partir da escolha, sendo que a escolha 1 não ocorre nada,
 		a segunda volta para o momento anterior, e a terceira tem uma recepção negativa que não muda em nada  */
 	system("clear");
+	printf("\n");
 	if (escolha == 1){
 		printf("Simone:    Nada de surpeendente acontece, esse era o caminho certo");
 	} else if (escolha == 2){
 		/*  Narrativa que justifica à volta e tenta justificar a ligação entre os dois pontos  */
-		printf(	"Simone:    Ei, aquela placa ali à esquerda, deveríamos passar nela de acordo com o mapa...\n"
+		printf(	"Simone:    Ei, aquela placa ali, deveríamos passar nela de acordo com o mapa...\n"
 				"Rogerinho: Eu disse que era uma direita não tão direita assim!\n"
-				"           Agora passamos do ponto, vamos ter que dar o retorno lá longe!\n"
-				"           Quantas vezes vou ter que repetir que eu tô entendendo o Google!!!\n"
+				"           Agora passamos do ponto, vamos ter que dar o retorno lá longe!\n\n"
+				"           Quantas vezes vou ter que repetir que eu tô entendendo o Google!!!\n\n"
 				"*Renan parte pra cima de Rogeirnho seu mata-leão já testando em Julinho*\n"
 				"Renan:     Calma! Mantenha a calma!\n"
 				"Simone:    Lá vamos nós de novo...");
@@ -539,6 +549,7 @@ void evento3(){
 
 	printf(	"\n\nClique em ENTER para continuar");
 	getchar();
+
 	/*  Chamada do momento seguinte  */
 	trescharadas();
 }
@@ -546,10 +557,10 @@ void evento3(){
 /*  4º Momento do Jogo, se refere ao jogo das três charadas
 	Para deixar a função mais focada em funcionalidade, as perguntas e respostas estão na função charadas()  */
 void trescharadas(){
-	/* CONTINUAR AQUI */
-	int sorteio[3] = {0}; /* variável de controle para evitar perguntas repetidas */
-	int n = 1; /* charada sorteada */
-	int resposta = 0, i;
+	int sorteio[3] = {0}; 	/*  Variável que recebem os sorteios e evita perguntas repetidas  */
+	int n = 1; 				/*  Variável que recebe o sorteio da charada  */
+	int resposta = 0;		/*  Recebe se a resposta foi correta ou não  */
+	int i;					/*  Variável de contagem das perguntas feitas  */
 
 	system("clear");
 
@@ -562,30 +573,44 @@ void trescharadas(){
 			"Maurílio:  Faz assim, você disse que já conheci a gente, né %s,\n"
 			"           Por que você não responde umas perguntinhas, só pra testar?\n"
 			"Simone:    Isso não foi uma sugestão...\n"
-			"           Você está ok para lidar com umas três perguntinhas simples só para avaliar o seu caráter\n\n"
+			"           Você está ok para lidar com umas três perguntinhas simples\n"
+			"           Só para avaliar o seu caráter\n"
 			"           haha\n"
 			"           Não, isso não é brincadeira\n\n", piloto.nome);
 	printf ("Clique em ENTER para continuar");
 	getchar();
 
-	/*  Passo 8.2 - Evento das três charadas - Charadas  */
+	/*  Passo 8.2 - Evento das três charadas - Sorteio e adivinhação das perguntas  */
 	for (i = 0; i < 3; i++){
 		system("clear");
 		do {
-			n = rand()%15 + 1;  /*sorteio de 15, sendo que começa em 1 */
-		} while (n == sorteio[0] && n == sorteio[1]);
+			/*  Realiza o sorteio de 15 perguntas a partir de 1
+				Para evitar números repetidos, o while compara com os dois primeiros elementos da array
+				Que começam com zero, não é preciso comparar com o último pois ele não será comparado depois de sorteado */
+			n = rand()%15 + 1;  
+		} while (n == sorteio[0] || n == sorteio[1]);
+		
 		sorteio[i] = 1;
+		/*  Atribui o valor sorteado ao vetor de controle  */
+
 		resposta = charadas(n);
+		/*  Chama a pergunta na função charadas e lá mesmo a resposta é conferida, só retornando se acertou ou não  */
+
 		printf("\n");
 		if (resposta){
+			/*  Narrativa para resposta certa  */
 			printf(	"Simone:    Tirou de letra, rapá! É isso que eu gosto de ver!\n"
-					"           Seu palpite foi tão certeiro que nem piscou!\n");
+					"           Seu palpite foi tão certeiro que nem piscou!");
 		} else {
+			/*  Narrativa para resposta errada, que tem diferentes versões e mostra a vida atual
+				Para encaixar melhor na narrativa, a vida inicial de 100 é a porcentagem de funcionamento da van
+				Então a medida que o jogador perde a van vai ficando pior */
 			piloto.vida -= 10;
 			printf( "Simone:    E esses sinais de nervosismos, aí, são por quê?\n"
 					"           Eu vi esse olho aí tremendo, essa mão que quase puxou a marcha errada\n");
 			if (i == 0){
-				printf(	"           Esse tua lateral arranhou e saiba que isso aqui não é GTA pra você ficar batendo, hein?\n"
+				printf(	"           Esse tua lateral arranhou\n"
+						"           Saiba que isso aqui não é GTA pra você ficar batendo, hein?\n"
 						"           Essa van tem limite e agora tá em %d%%...", piloto.vida);
 			} else if (i == 1){
 				printf(	"           Sentiu uma parte do motor raspando naquele quebra-molas, né?\n"
@@ -595,23 +620,28 @@ void trescharadas(){
 						"           Essa van tem limite e agora tá em %d%%...", piloto.vida);
 			}
 		}
-		printf ("\nClique em ENTER para continuar");
+		printf ("\n\nClique em ENTER para continuar");
 		getchar();
 	}
 	
+
+	/*  Narrativa final igual para todos os casos, pois não é possível morrer nessa fase  */
 	system("clear");
 	printf(	"Simone:    Apesar dos pesares, essa van ainda aguenta o resto da aventura com %d%%\n\n"
 			"           Ou será que não?\n\n", piloto.vida);
 	printf ("\nClique em ENTER para continuar");
 	getchar();
 
+	/*  Chamada do momento seguinte  */
 	placadavan();
 }
 
+/*  Função auxiliar do jogo das três charadas  
+	Tem por estrutura exibir a pergunta, as alternativas, receber a resposta, comparar e retornar se está certo ou não  */
 int charadas(int n){
 	int entrada = 0;
 	if (n == 1){
-		printf(	"Renan:     Qual o nome lo livro do Rambo?\n\n");
+		printf(	"Renan:     Qual o nome do livro do Rambo?\n\n");
 		printf(	"1. Rambo\n"
 				"2. Rambo, o livro\n"
 				"3. O livro do Rambo\n\n");
@@ -624,7 +654,7 @@ int charadas(int n){
 		}
 	}
 	if (n == 2){
-		printf(	"Rogerinho: O que não é cultura jovem?\n"
+		printf(	"Rogerinho: O que não é cultura jovem?\n\n"
 				"           E Renan, você sabe muito bem que não é!\n\n");
 		printf(	"1. Slack line e Bruno de Luca\n"
 				"2. Skate e Destruição\n"
@@ -651,7 +681,7 @@ int charadas(int n){
 		}
 	}
 	if (n == 4){
-		printf(	"Maurílio:  A justiça...?\n");
+		printf(	"Maurílio:  A justiça...?\n\n");
 		printf(	"1. É justa\n"
 				"2. Tem que acabar\n"
 				"3. Existe\n\n");
@@ -664,39 +694,36 @@ int charadas(int n){
 		}
 	}
 	if (n == 5){
-		printf(	"teste\n"
-				"teste\n");
-		printf(	"1. errada\n"
-				"2. errada\n"
-				"3. certa\n\n");
+		printf(	"Maurílio:  Harry Potter sem Harry Potter é?\n\n");
+		printf(	"1. Golpe\n"
+				"2. Spin-Off\n"
+				"3. Animais Fantásticos e Onde Habitam\n\n");
 		scanf(" %i", &entrada);
 		__fpurge(stdin);
-		if (entrada == 3){
+		if (entrada == 1){
 			return 1;
 		} else {
 			return 0;
 		}
 	}
 	if (n == 6){
-		printf(	"teste\n"
-				"teste\n");
-		printf(	"1. errada\n"
-				"2. errada\n"
-				"3. certa\n\n");
+		printf(	"Rogerinho: Filme mais aguardado de todos os tempos?\n\n");
+		printf(	"1. Velozes e Furiosos 5\n"
+				"2. Velozes e Furiosos 7\n"
+				"3. Velozes e Furiosos 8\n\n");
 		scanf(" %i", &entrada);
 		__fpurge(stdin);
-		if (entrada == 3){
+		if (entrada == 2){
 			return 1;
 		} else {
 			return 0;
 		}
 	}
 	if (n == 7){
-		printf(	"teste\n"
-				"teste\n");
-		printf(	"1. errada\n"
-				"2. errada\n"
-				"3. certa\n\n");
+		printf(	"Renan:     Como que se dirige um filme dirigindo?\n\n");
+		printf(	"1. Capotando\n"
+				"2. Com drone\n"
+				"3. Não dirige\n\n");
 		scanf(" %i", &entrada);
 		__fpurge(stdin);
 		if (entrada == 3){
@@ -706,11 +733,10 @@ int charadas(int n){
 		}
 	}
 	if (n == 8){
-		printf(	"teste\n"
-				"teste\n");
-		printf(	"1. errada\n"
-				"2. errada\n"
-				"3. certa\n\n");
+		printf(	"Rogerinho: O carro é uma arma?\n\n");
+		printf(	"1. Não\n"
+				"2. De jeito nenhum\n"
+				"3. É uma arma do bem\n\n");
 		scanf(" %i", &entrada);
 		__fpurge(stdin);
 		if (entrada == 3){
@@ -720,11 +746,10 @@ int charadas(int n){
 		}
 	}
 	if (n == 9){
-		printf(	"teste\n"
-				"teste\n");
-		printf(	"1. errada\n"
-				"2. errada\n"
-				"3. certa\n\n");
+		printf(	"Julinho:   Eu nunca matei ninguém?\n\n");
+		printf(	"1. Não\n"
+				"2. Nunca\n"
+				"3. Propositalmente\n\n");
 		scanf(" %i", &entrada);
 		__fpurge(stdin);
 		if (entrada == 3){
@@ -734,84 +759,78 @@ int charadas(int n){
 		}
 	}
 	if (n == 10){
-		printf(	"teste\n"
-				"teste\n");
-		printf(	"1. errada\n"
-				"2. errada\n"
-				"3. certa\n\n");
+		printf(	"Renan:     Ambiente de música é ambiente de...\n\n");
+		printf(	"1. Droga\n"
+				"2. Street Dance\n"
+				"3. Dança\n\n");
 		scanf(" %i", &entrada);
 		__fpurge(stdin);
-		if (entrada == 3){
+		if (entrada == 1){
 			return 1;
 		} else {
 			return 0;
 		}
 	}
 	if (n == 11){
-		printf(	"teste\n"
-				"teste\n");
-		printf(	"1. errada\n"
-				"2. errada\n"
-				"3. certa\n\n");
+		printf(	"Julinho:   Filme mais emocionante?\n\n");
+		printf(	"1. Velozes e Furiosos\n"
+				"2. Transformers\n"
+				"3. Bumblebee\n\n");
 		scanf(" %i", &entrada);
 		__fpurge(stdin);
-		if (entrada == 3){
+		if (entrada == 2){
 			return 1;
 		} else {
 			return 0;
 		}
 	}
 	if (n == 12){
-		printf(	"teste\n"
-				"teste\n");
-		printf(	"1. errada\n"
-				"2. errada\n"
-				"3. certa\n\n");
+		printf(	"Renan:     Os efeitos visuais dos filmes são?\n\n");
+		printf(	"1. Feitiço\n"
+				"2. Mentira\n"
+				"3. Ficção\n\n");
 		scanf(" %i", &entrada);
 		__fpurge(stdin);
-		if (entrada == 3){
+		if (entrada == 1){
 			return 1;
 		} else {
 			return 0;
 		}
 	}
 	if (n == 13){
-		printf(	"teste\n"
-				"teste\n");
-		printf(	"1. errada\n"
-				"2. errada\n"
-				"3. certa\n\n");
+		printf(	"Julinho:   Melhor série de filmes?\n\n");
+		printf(	"1. Velozes e Furiosos\n"
+				"2. Harry Potter\n"
+				"3. Piratas do Caribe\n\n");
 		scanf(" %i", &entrada);
 		__fpurge(stdin);
-		if (entrada == 3){
+		if (entrada == 1){
 			return 1;
 		} else {
 			return 0;
 		}
 	}
 	if (n == 14){
-		printf(	"teste\n"
-				"teste\n");
-		printf(	"1. errada\n"
-				"2. errada\n"
-				"3. certa\n\n");
+		printf(	"Maurílio:  Melhor idoso?\n\n");
+		printf(	"1. Anthony Hopkins por Tranformers\n"
+				"2. Harrison Ford por Blade Runner 2049\n"
+				"3. Papa Francisco por Papa\n\n");
 		scanf(" %i", &entrada);
 		__fpurge(stdin);
-		if (entrada == 3){
+		if (entrada == 1){
 			return 1;
 		} else {
 			return 0;
 		}
 	}
 	if (n == 15){
-		printf(	"teste\n"
-				"teste\n");
-		printf(	"1. errada\n"
-				"2. errada\n"
-				"3. certa\n\n");
+		printf(	"Rogerinho: Ganhador do Prêmio Cultura Jovem\n\n");
+		printf(	"1. Homem-Aranha em Homem-Aranha\n"
+				"2. Bruno de Luca em Os Parças\n"
+				"3. Didi Mocó em Saltimbancos Trapalhões\n\n");
 		scanf(" %i", &entrada);
 		__fpurge(stdin);
-		if (entrada == 3){
+		if (entrada == 2){
 			return 1;
 		} else {
 			return 0;
@@ -819,19 +838,38 @@ int charadas(int n){
 	}
 }
 
+/*  5º Momento do Jogo, se refere à advinhação de número
+	Para justificar na narrativa, espera-se que o jogador acerte a placa da van que dirige 
+	que é sorteada aleatoriamente e não conta com números repetidos*/
 void placadavan(){
 	int sorteio[4] = {0}, reserva[4] = {1,1,1,1}, palpite[4] = {0};
+	/*	Variáveis:
+		Sorteio			- guarda os números sorteados pelo computador
+		Reserva			- serve para garantir que o número já foi ou não comparado com a entrada do jogador
+		Palpite			- guarda o palpite do jogador  */
+
 	int i, j, k, x, certo, errado, palpitejunto, fim = 0;
+	/*  Variáveis:
+		i, j, k 		- controle de repetição dos processos
+		x				- variável que recebe o sorteio para comparar com as variáveis já sorteadas
+		certo, errado	- guardam quantas variáveis são corretas no lugar certo ou são corretas no lugar errado por palpite
+		palpitejunto	- recebe o palpite para depois separar no vetor palpite
+		fim 			- indica qual o fim do jogo, se é bom ou ruim  */
 	
+	/*  Narrativa introdutória ao jogo  */
 	system("clear");
 	printf(	"Simone:    É, você é uma pessoa de muita firmeza e ninguém pode contestar\n"
-			"           E sabe o que tem  na frente uma blitz! Mas esses pilotos já viram milhares assim...\n"
-			"           Eles não tão nem aí pra quem tá no carro (você ouviu o suspiro de alívio do Maurílio, né?)\n"
-			"           Eles querem confirmar a placa do carro e só, e isso você sabe!\n"
+			"           E sabe o que tem  na frente uma blitz!\n"
+			"           Mas esses pilotos já viram milhares assim...\n"
+			"           Eles não tão nem aí pra quem tá no carro\n"
+			"           Você ouviu o suspiro de alívio do Maurílio, né?\n"
+			"           Eles querem confirmar a placa do carro e só, 4 numerozinhos\n"
+			"           E para alguém que aguentou até aqui, isso é moleza, né?!\n"
 			"           ...\n           ...\n"
 			"           Eu não acredito que você não sabe...\n"
 			"           Pela fé, eu acho que eles vão te dar uma colher de chá, mas fica de olho\n"
-			"           Eu já disse que essa van tem limite!\n\n"
+			"           É só você digitar aí um número de quatro dígitos tudo junto!\n"
+			"           E eu já disse que essa van tem limite!\n\n"
 			"Clique ENTER para continuar");
     getchar();
 	system("clear");
@@ -839,19 +877,22 @@ void placadavan(){
 	/*  Passo 9.1 - Descubra o número - Sorteio dos números  */
 	for (i = 0; i < 4; i++)	{
 		do {
+			/*  Repete o processo de comparação até que sejam diferentes dos 3 primeiros números sorteados,
+				Como os números inicializam no 0, apenas o último número, após o sorteio dos 3 primeiros pode ser 0  */
 			x = rand()%10;
 		} while (x == sorteio[0] || x == sorteio[1] || x == sorteio[2]);
-
+		/*  Guarda o resultado do sorteio  */
 		sorteio[i] = x;
 	}
 
 	/*  Passo 9.2 - Descubra o número - Advinhe os números  */
 
-	/* Descomente a linha debaixo para receber o valor sorteado
+	/* Descomente a linha debaixo para receber o valor sorteado 
     printf("%d %d %d %d\n", sorteio[3], sorteio[2], sorteio[1], sorteio[0]); */
 
-	printf("Simone:    Que os palpites comece: ");
+	printf("Simone:    Que os palpites comecem: ");
 	for (i = 0; i < 10; i++) {
+
 		/*  Reset das variáveis de controle  */
         reserva[0] = 1;
         reserva[1] = 1;
@@ -888,17 +929,12 @@ void placadavan(){
             }
 		}
 
-		/*  Imprime o resultado do palpite e a vida restante  */
-		piloto.vida -= 10;
-        
-		if (piloto.vida <= 0){
-			printf(	"Simone:    EU FALEI QUE A DROGA DESSA VAN TINHA LIMITE!\n"
-					"*A conexão falhou bem na hora para poupar você de ouvir toda a bronca*\n\n"
-					"Clique ENTER para continuar");
-			getchar();
-			fim = 0;
-			break;
-		} else if (certo == 4) {
+		/*  Imprime o resultado do palpite e a vida restante se preciso  */
+        piloto.vida -= 10;
+
+		
+		if (certo == 4) {
+			/*  Caso 1 - o jogador acerta o número  */
             printf(	"\nSimone:    E É POR ISSO QUE O BRASILEIRO EXISTE,\n"
 					"           É PORQUE ELE NÃO DESISTE NUNCA!!!\n"
 					"           Graças a você sobrevivmentos e podemos continuar pela estrada, amém\n\n"
@@ -906,7 +942,16 @@ void placadavan(){
 			fim = 1;
 			getchar();
             break;
+		} else if (piloto.vida <= 0) {
+			/*  Caso 2 - o jogador zera a vida  */
+			printf(	"\nSimone:    EU FALEI QUE A DROGA DESSA VAN TINHA LIMITE!\n"
+					"*A conexão falhou bem na hora para poupar você de ouvir toda a bronca*\n\n"
+					"Clique ENTER para continuar");
+			getchar();
+			fim = 0;
+			break;
         } else {
+			/*  Caso 3 - a pessoa erra, mas ainda tem vida  */
             printf( "\nSimone:    Esse foi o palpite %02d, sendo    %d certa(s)    %d certa(s) no lugar errado\n"
 					"           Essa van ainda tem o limite de %d%%"
                     "\n\nSimone:    Próximo palpite: ", i+1, certo, errado, piloto.vida);
@@ -914,35 +959,55 @@ void placadavan(){
 
 	}
 
+	/*  Chama o momento seguinte dependendo do desfecho  */
 	if (fim){
 		fimdejogobom();
 	} else {
-		fimdejogoruim;
+		fimdejogoruim();
 	}
 }
 
+/*  Seção de função tipo void com apenas texto  */
+
+/*  Fim de jogo positivo com desfecho final  */
 void fimdejogobom(){
 	system("clear");
 	printf(	"Simone:    É motorista, me parece que essa aventura que vivemos juntos está acabando...\n"
 			"           Eu sei, eu sei, eu nem deveria me emocionar, mal nos conhecemos...\n"
 			"           Mas passamos por tantas emoções juntos, você tomou tantas decisões erradas!!\n"
 			"           É isso, acho que não tenho mais nada a dizer\n"
-			"           Pelo parabrisa dá pra ver que vocês já devem estar na metade do caminho para o Rio\n"
+			"           Pelo parabrisa dá pra ver que vocês devem estar na metade do caminho pro Rio\n"
 			"           Eu vou embora, porque eu sei que você sabe se virar..\n"
 			"           Até mais, guerreirinho...\n\n"
-			"Rogerinha: Ei, rapá, devido tuas habilidades aí, a gente tava pensando..."
+			"Rogerinha: Ei, rapá, devido tuas habilidades aí, a gente tava pensando...\n"
 			"           Você não quer entrar pro choque não?\n"
-			"           Tamo precisando de alguém de confiança, e olha, você parece decente\n"
-			"Simone:    É piloto, isso me parece o início de outra viagem, mas não vai ser nesse jogo aqui não!\n\n"
+			"           Tamo precisando de alguém de confiança, e olha, tu parece decente\n"
+			"Simone:    É piloto, isso me parece o início de outra viagem,\n"
+			"           Mas não vai ser nesse jogo aqui não!\n\n"
 			"Clique ENTER para continuar");
 	getchar();
+
+	/*  Chama momento seguinte  */
 	creditos();
 }
 
+
+/*  Fim de jogo negativo com desfecho final  */
 void fimdejogoruim(){
 	system("clear");
-	printf("fim bom\n");
+	printf(	"Simone:    É, xadrez pra todo mundo agora...\n"
+			"           Sinceramente, estou agradecendo e muito por só acompanhar essa sua aventura\n"
+			"           Porque se eu estivesse aí seria presa por homicídio em flagrante\n"
+			"           Vou precisar de outro emprego agora...\n\n"
+			"Julinho:   E é por isso que eu nunca uso o meu próprio nome na van\n"
+			"           Agora vamo ter que receber um enquadro por causa de alguém que nem conheço\n"
+			"           E lá vai o Maurílio ter que ficar foragido sabe se lá por quanto tempo...\n"
+			"Renan:     Olhe, não espere sobreviver depois que a gente sair daqui...\n\n"
+			"Clique ENTER para continuar");
 	getchar();
+
+	/*  Chama momento seguinte  */
+	creditos();
 }
 
 void creditos(){
@@ -950,14 +1015,15 @@ void creditos(){
 	printf(	"Eduarda:   Olá, pessoa que jogou! Tudo bem com você?\n"
 			"           Espero que você tenha tido pelo menos uma experiência não entediante\n"
 			"           E tenha aproveitado essa aventura bem simples que preparei\n"
-			"           O quinteto protagonista desse mistura de RPG x Fanfic x Buzzfeed é da TV Quase\n"
-			"           Baseado no magnífico programa \"Choque de Cultura \"\n\n"
+			"           O quinteto principal dessa mistura de RPG x Fanfic x Buzzfeed é da TV Quase\n"
+			"           Baseado no magnífico programa \"Choque de Cultura\"\n\n"
 			"           E só por curiosidade a manifestação do dia 21/09/2019 realmente aconteceu\n"
 			"           Mas é mais comum achar as que aconteceram em Paris e Hong Kong no mesmo dia\n\n"
 			"           E por enquanto, é isso! Esse é o meu recado final!\n"
 			"           Até mais\n\n"
-			"Clique...");
-	
+			"Clique...");	
 	getchar();
+
+	/*  Volta ao menu na main  */
 	main();
 }
